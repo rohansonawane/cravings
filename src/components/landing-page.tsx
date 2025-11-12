@@ -44,7 +44,8 @@ export function LandingPage() {
   return (
     <div className="relative overflow-hidden bg-background pb-24 pt-16 md:pt-20">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,#3f301c1f_0%,transparent_45%),radial-gradient(circle_at_center,#c9a7600a_0%,transparent_60%),linear-gradient(180deg,#0b0604_0%,#090504_45%,#0b0604_100%)]" />
-      <div className="relative mx-auto flex max-w-6xl flex-col gap-24 px-4 md:px-8 lg:gap-28">
+      <div className="bean-overlay" aria-hidden />
+      <div className="relative z-10 mx-auto flex max-w-6xl flex-col gap-24 px-4 md:px-8 lg:gap-28">
         <motion.section
           initial="hidden"
           animate="visible"
@@ -97,10 +98,13 @@ export function LandingPage() {
                 { label: "Hand-finished", value: "Every 90 minutes" },
                 { label: "Members", value: "3400 globally" },
               ].map((metric) => (
-                <div key={metric.label} className="space-y-1">
-                  <p className="text-xs uppercase tracking-[0.32em] text-muted-foreground">
-                    {metric.label}
-                  </p>
+                <div key={metric.label} className="space-y-2">
+                  <div className="flex items-center gap-2">
+                    <span className="bean-chip" aria-hidden />
+                    <p className="text-xs uppercase tracking-[0.32em] text-muted-foreground">
+                      {metric.label}
+                    </p>
+                  </div>
                   <p className="text-lg font-semibold text-foreground">
                     {metric.value}
                   </p>
@@ -348,7 +352,8 @@ export function LandingPage() {
         >
           <span className="pointer-events-none absolute -right-20 -top-20 h-60 w-60 rounded-full bg-primary/10 blur-3xl" />
           <span className="pointer-events-none absolute bottom-10 left-10 h-48 w-48 rounded-full border border-primary/15" />
-          <div className="relative mx-auto flex max-w-4xl flex-col items-center gap-6 text-center">
+          <div className="bean-overlay--vertical" aria-hidden />
+          <div className="relative z-10 mx-auto flex max-w-4xl flex-col items-center gap-6 text-center">
             <Badge className="rounded-full bg-primary/15 px-4 py-2 text-xs uppercase tracking-[0.3em] text-primary">
               Crafted with intention
             </Badge>
@@ -405,7 +410,7 @@ export function LandingPage() {
             <ul className="space-y-3 text-sm text-muted-foreground">
               {giftingPerks.map((perk) => (
                 <li key={perk} className="flex items-start gap-3">
-                  <Star className="mt-1 h-4 w-4 text-primary" />
+                  <span className="bean-chip mt-1" aria-hidden />
                   <span>{perk}</span>
                 </li>
               ))}
@@ -472,9 +477,10 @@ export function LandingPage() {
 
         <section
           id="visit"
-          className="rounded-[3rem] border border-primary/15 bg-gradient-to-br from-[#120805]/90 via-[#0d0604] to-[#080403] p-8"
+          className="relative rounded-[3rem] border border-primary/15 bg-gradient-to-br from-[#120805]/90 via-[#0d0604] to-[#080403] p-8"
         >
-          <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr]">
+          <div className="bean-overlay--vertical" aria-hidden />
+          <div className="relative z-10 grid gap-10 lg:grid-cols-[1.2fr_1fr]">
             <div className="space-y-6">
               <Badge className="rounded-full bg-primary/15 px-4 py-2 text-xs uppercase tracking-[0.3em] text-primary">
                 Boutique tasting salons
@@ -493,6 +499,7 @@ export function LandingPage() {
                     key={location.city}
                     className="rounded-2xl border border-border/40 bg-secondary/40 p-5"
                   >
+                    <span className="bean-chip mb-3" aria-hidden />
                     <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
                       {location.city}
                     </p>
