@@ -1,36 +1,86 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Cravings – Homemade Premium Chocolate Experience
 
-## Getting Started
+A mobile-first, premium dark & golden themed ecommerce experience for the **Cravings** homemade chocolate brand. Built with Next.js App Router, Tailwind CSS v4, shadcn/ui, and framer-motion.
 
-First, run the development server:
+![Cravings preview](https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1200&q=80)
 
+---
+
+### Tech Stack
+- Next.js 14 App Router (TypeScript)
+- Tailwind CSS v4 + custom theme variables
+- shadcn/ui component primitives
+- framer-motion for micro interactions
+- Global cart context with sheet UI
+
+---
+
+### Local Development
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# open http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Available scripts:
+- `npm run dev` – local development
+- `npm run lint` – run ESLint
+- `npm run build` – production build
+- `npm run start` – serve production build
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Vercel Deployment
+The repository is ready for Vercel (see `vercel.json`). To deploy:
 
-## Learn More
+1. **Create the project**  
+   - Visit [Vercel](https://vercel.com/new) → “Import Git Repository”  
+   - Select `rohansonawane/cravings` and choose the main branch.
 
-To learn more about Next.js, take a look at the following resources:
+2. **Confirm build settings**  
+   - Framework: **Next.js** (auto-detected)  
+   - Install Command: `npm install`  
+   - Build Command: `npm run build`  
+   - Output Directory: `.next`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. **Environment variables**  
+   - None required today. Add as needed via the Vercel dashboard.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+4. **Deploy**  
+   - Click Deploy. Vercel will build and provide a production URL.  
+   - Optional: connect a custom domain in the project settings.
 
-## Deploy on Vercel
+CLI Option:
+```bash
+vercel login
+vercel
+vercel --prod
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Vercel GitHub integration is enabled via `vercel.json`, so pushes to `main` can auto-trigger new deployments.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+### Project Structure
+```
+src/
+  app/
+    page.tsx          # landing page
+    shop/             # product listing page
+    collections/      # curated experiences
+    gifting/          # gifting concierge
+    story/            # brand story timeline
+  components/
+    cart/             # cart sheet
+    layout/           # header & footer
+    ui/               # shadcn components
+  context/
+    cart-context.tsx  # global cart provider
+  data/
+    site-content.ts   # products, gallery, video
+```
+
+---
+
+### License
+MIT © Cravings
