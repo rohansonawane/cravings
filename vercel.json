@@ -1,9 +1,5 @@
 {
-  "version": 3,
-  "framework": "nextjs",
-  "installCommand": "npm install",
-  "buildCommand": "npm run build",
-  "outputDirectory": ".next",
+  "version": 2,
   "github": {
     "enabled": true,
     "autoJobCancelation": true
